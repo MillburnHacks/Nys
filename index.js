@@ -3,10 +3,17 @@
 // these functions make it easier to manage teams without directly calling localStorage
 const getTeams = () => JSON.parse(localStorage.getItem("teams"));
 const hasTeam = (name) => getTeams().map(team => team.name).indexOf(name) !== -1;
+const isValidTeam = (team) => team.hasOwnProperty("name") && team.hasOwnProperty("notes");
 const addTeam = (team) => {
+  // add the team
   if (!hasTeam(team.name)) {
     localStorage.setItem("teams", JSON.stringify(getTeams().concat(team)));
   }
+
+  // remove any teams that don't have both a name and notes
+  const teams = getTeams().filter(isValidTeam);
+  localStorage.setItem("teams", JSON.stringify(teams));
+
   if (firebase) {
     firebase.database().ref(`team/${team.name}`).set(team);
   }
@@ -34,6 +41,7 @@ const renderTeams = () => {
     teamNode.innerHTML = `
       <h3>${team.name}</h3>
       <p>${team.notes}</p>
+      <p>Has auton: ${team.auton}</p>
       <button team="${team.name}" class="remove-team">Remove</button>
     `;
     document.getElementById("teams").appendChild(teamNode);
@@ -52,7 +60,8 @@ const renderTeams = () => {
 document.getElementById("save").addEventListener("click", () => {
   const name = document.getElementById("name").value;
   const notes = document.getElementById("notes").value;
-  addTeam({ name, notes });
+  const auton = document.getElementById("auton").checked;
+  addTeam({ name, notes, auton });
   renderTeams();
 });
 
