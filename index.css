@@ -1,0 +1,16 @@
+#add-team {
+  max-width: 300px;
+  min-width: 100px;
+}
+
+#add-team > * {
+  width: 100%;
+}
+
+button {
+  max-width: 80px;
+}
+
+#notes {
+  height: 50px;
+}
