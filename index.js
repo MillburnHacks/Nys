@@ -29,11 +29,13 @@ const renderTeams = () => {
   if (teams.length > 0) {
     document.getElementById("teams").innerHTML = "<h2>Teams</h2>";
   }
-  for (let team of teams) {
+  for (let i = 1; i < teams.length; i++) {
     const teamNode = document.createElement("div");
+    const team = teams[i];
     teamNode.innerHTML = `
       <h3>${team.name}</h3>
       <p>${team.notes}</p>
+      <p>Autonomous Points: ${team.autonPoints}</p>
       <button team="${team.name}" class="remove-team">Remove</button>
     `;
     document.getElementById("teams").appendChild(teamNode);
@@ -52,7 +54,8 @@ const renderTeams = () => {
 document.getElementById("save").addEventListener("click", () => {
   const name = document.getElementById("name").value;
   const notes = document.getElementById("notes").value;
-  addTeam({ name, notes });
+  const autonPoints = document.getElementById("autonPoints").value;
+  addTeam({ name, notes, autonPoints });
   renderTeams();
 });
 
