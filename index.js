@@ -59,13 +59,16 @@ const renderTeams = () => {
 };
 
 // save the team entered when save button is pressed
-document.getElementById("save").addEventListener("click", () => {
+document.getElementById("save").addEventListener("click", (event) => {
+  event.preventDefault();
   const name = document.getElementById("name").value;
   const notes = document.getElementById("notes").value;
   const autonPoints = document.getElementById("autonPoints").value;
   const auton = document.getElementById("auton").checked;
-  addTeam({ name, notes, autonPoints, auton });
-  renderTeams();
+  if (name) {
+    addTeam({ name, notes, autonPoints, auton });
+    renderTeams();
+  }
 });
 
 renderTeams();
