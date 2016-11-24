@@ -13,10 +13,6 @@ const addTeam = (team) => {
   // remove any teams that don't have both a name and notes
   const teams = getTeams().filter(isValidTeam);
   localStorage.setItem("teams", JSON.stringify(teams));
-
-  if (firebase) {
-    firebase.database().ref(`team/${team.name}`).set(team);
-  }
 };
 const removeTeam = (name) => {
   const teamsWithoutTeam = getTeams().filter(t => t.name !== name);
@@ -25,6 +21,9 @@ const removeTeam = (name) => {
     firebase.database().ref(`team/${name}`).set(null);
   }
 };
+const uploadTeamToFirebase = (team) => firebase.database().ref(`team/${team.name}`).set(team);
+const uploadToFirebase = () => getTeams.forEach(uploadTeamToFirebase);
+
 // initialize the teams value by making sure that it is set to an array
 localStorage.setItem("teams", localStorage.getItem("teams") || "[]");
 
@@ -66,7 +65,9 @@ document.getElementById("save").addEventListener("click", (event) => {
   const autonPoints = document.getElementById("autonPoints").value;
   const auton = document.getElementById("auton").checked;
   if (name) {
-    addTeam({ name, notes, autonPoints, auton });
+    const team = { name, notes, autonPoints, auton };
+    addTeam(team);
+    uploadTeamToFirebase(team);
     renderTeams();
   }
 });
