@@ -34,7 +34,7 @@ const renderTeams = () => {
 
   const teams = getTeams();
   if (teams.length > 0) {
-    document.getElementById("teams").innerHTML = "<h2>Teams</h2>";
+    document.getElementById("teams").innerHTML = "<h2 id=\"title\">Teams</h2>";
   }
   for (let i = 1; i < teams.length; i++) {
     const teamNode = document.createElement("div");
@@ -42,8 +42,8 @@ const renderTeams = () => {
     teamNode.innerHTML = `
       <h3>${team.name}</h3>
       <p>${team.notes}</p>
-      <p>Autonomous Points: ${team.autonPoints}</p>
-      <p>Has auton: ${team.auton}</p>
+      <p>Autonomous Points: <b>${team.autonPoints}</b></p>
+      <p>Has auton: <b>${team.auton}</b></p>
       <button team="${team.name}" class="remove-team">Remove</button>
     `;
     document.getElementById("teams").appendChild(teamNode);
