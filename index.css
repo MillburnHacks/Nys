@@ -1,16 +1,108 @@
+/* Fonts */
+
+/* Styling */
+
+* {
+    padding: 0px;
+    margin: 0px;
+    outline: none;
+}
+
+body {
+    background-color: #282E58;
+}
+
+#title {
+    color: #FDFEFE;
+    font-size: 3em;
+    padding: 0px 20px;
+    margin: 12px;
+}
+#form {
+    text-align: center;
+    font-size: 1.1em;
+}
 #add-team {
-  max-width: 300px;
-  min-width: 100px;
+    background-color: #FDFEFE;
+    padding: 20px 0;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
 }
 
-#add-team > * {
-  width: 100%;
+input, textarea{
+    border: 2px solid #5585ff;
+    padding: 5px 10px;
+    color: #5585ff;
+    font-size: 15px;
+    transition: all 0.25s ease;
+}
+input:focus, textarea:focus{
+    background-color: #5585ff;
+    color: #FDFEFE;
 }
 
-button {
-  max-width: 80px;
+#save {
+    padding: 5px 15px;
+    margin: 15px 0px 0px 0px;
+    outline: none;
+    height: 40px;
+    text-align: center;
+    width: 130px;
+    border-radius: 40px;
+    background: #fff;
+    border: 2px solid #5585ff;
+    color: #5585ff;
+    letter-spacing: 1px;
+    text-shadow: 0;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.25s ease;
 }
-
-#notes {
-  height: 50px;
+#save:hover {
+    color: white;
+    background: #5585ff;
+    letter-spacing: 1px;
+}
+#save:active{
+    letter-spacing: 2px;
+}
+#teams {
+    background-color: #FDFEFE;
+    border: 4px solid #FDFEFE;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+#teams > h3 {
+    font-size: 2em;
+}
+#teams > p {
+    padding: 5px;
+}
+#teams > button {
+    margin: 15px 0px 0px 0px;
+    outline: none;
+    height: 35px;
+    text-align: center;
+    width: 120px;
+    border-radius: 40px;
+    background: #fff;
+    border: 2px solid #F5595A;
+    color: #F5595A;
+    letter-spacing: 1px;
+    text-shadow: 0;
+    font-size: 15.4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+#teams > button:hover {
+    color: white;
+    background: #F5595A;
+    letter-spacing: 1px;
+}
+#teams > button:active{
+    letter-spacing: 2px;
 }
