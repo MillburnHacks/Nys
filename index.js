@@ -33,7 +33,7 @@ const renderTeams = () => {
 
   const teams = getTeams();
   if (teams.length > 0) {
-    document.getElementById("teams").innerHTML = "<h2 id=\"title\">Teams</h2>";
+    document.getElementById("teams").innerHTML = "<h2 id=\"team-title\">Teams</h2>";
   }
   for (let i = 1; i < teams.length; i++) {
     const teamNode = document.createElement("div");

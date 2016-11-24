@@ -69,19 +69,29 @@ input:focus, textarea:focus{
     letter-spacing: 2px;
 }
 #teams {
+    color:#282E58;
     background-color: #FDFEFE;
     border: 4px solid #FDFEFE;
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
 }
-#teams > h3 {
+#team-title {
+    color: #282E58;
+    font-size: 3em;
+    margin: 5px 15px;
+}
+#teams > div {
+    margin: 0px 0px 30px 38px;
+}
+
+#teams > div > h3{
     font-size: 2em;
 }
-#teams > p {
+#teams > div> p {
     padding: 5px;
 }
-#teams > button {
+#teams > div> button {
     margin: 15px 0px 0px 0px;
     outline: none;
     height: 35px;
@@ -98,11 +108,11 @@ input:focus, textarea:focus{
     cursor: pointer;
     transition: all 0.25s ease;
 }
-#teams > button:hover {
+#teams > div> button:hover {
     color: white;
     background: #F5595A;
     letter-spacing: 1px;
 }
-#teams > button:active{
+#teams > div> button:active{
     letter-spacing: 2px;
 }
