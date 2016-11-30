@@ -1,38 +1,55 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Nys</title>
-        <link rel="stylesheet" href="index.css">
-    </head>
-    <body>
-        <header>
-            <h1 id="title">Nys</h1>
-        </header>
-        <div id="form">
-            <form id="add-team">
-                <div>
-                    <label> Team Name</label>
-                    <input type="text" id="name" />
-                </div>
-                <div>
-                    <input type="checkbox" id="auton">Has auto
-                    <br/>
-                </div>
-                <div>
-                    <label>Notes</label>
-                    <textarea type="text" id="notes"></textarea>
-                </div>
-                <div>
-                    <label>Points</label>
-                    <input type="number" id="autonPoints" />
-                </div>
-                <button type="submit" id="save" class="button">Save</button>
-            </form>
+  <head>
+    <title>Nys</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <header>
+      <h1 id="title">Nys</h1>
+    </header>
+    <div>
+      <form id="add-team">
+        <div>
+          <label> Team Name</label>
+          <input type="text" id="name" />
         </div>
-        <div id="teams"></div>
-        
-        <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
-        <script src="index.js"></script>
-        
-    </body>
+        <div>
+          <input type="checkbox" id="auton">Has autonomous</input>
+          <br/>
+        </div>
+        <div>
+          <label>Notes</label>
+          <textarea type="text" id="notes"></textarea>
+        </div>
+        <div>
+          <label>Points</label>
+          <input type="number" id="autonPoints" />
+        </div>
+        <button type="submit" id="save" class="button">Save</button>
+      </form>
+    </div>
+    <div id="teams"></div>
+
+    <footer>
+      <form id="firebase-sync">
+        <h2>Firebase Syncing Configuration</h2>
+        <p id="firebase-sync-message">
+          If you want to add Firebase syncing, please fill out the following:
+        </p>
+        <div>
+          <label>Firebase API Key</label>
+          <input type="text" id="firebase-api-key" />
+        </div>
+        <div>
+          <label>Firebase Project Name</label>
+          <input type="text" id="firebase-project-name" />
+        </div>
+        <button type="submit" id="firebase-sync-save" class="button">Sync</button>
+      </form>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
+    <script src="index.js"></script>
+  </body>
 </html>
